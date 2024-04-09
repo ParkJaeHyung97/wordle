@@ -4,30 +4,21 @@ let index = 0;
 let timer;
 
 function appStart() {
-  const displayGameover = () => {
-    const div = document.createElement("div");
-    div.innerText = "게임이 종료 되었습니다.";
-    div.style =
-      " background-color:white; color:black; font-size:40px; font-weight:bold; display:flex; justify-content:center; align-items:center; position:fixed; top:47vh; left:37vw; ";
-    document.body.appendChild(div);
-  };
-
   const nextLine = () => {
     if (attempts === 6) return gameover();
     attempts += 1;
     index = 0;
   };
-  const gameover = () => {
-    window.removeEventListener("keydown", handleKeydown);
-    displayGameover();
-    clearInterval(timer);
-  };
+
+  //엔터키를 눌렀을때
   const handleEnterKey = () => {
     let 맞은_갯수 = 0;
     for (let i = 0; i < 5; i++) {
       const block = document.querySelector(
         `.board-block[data-index='${attempts}${i}']`
       );
+
+      // 입력한 글자가 위치랑 글자가 맞으면 초록 ,글자만 맞으면 노랑, 안맞으면 회색
       const 입력한_글자 = block.innerText;
       const 정답_글자 = 정답[i];
       if (입력한_글자 === 정답_글자) {
@@ -38,10 +29,12 @@ function appStart() {
       block.style.color = "white";
     }
 
+    //5글자 다 맞았을때 , gameover 아닐때 다음줄로
     if (맞은_갯수 === 5) gameover();
     else nextLine();
   };
 
+  //backspace키를 눌렀을때 하나씩 지워지게하기
   const handleBackspace = () => {
     if (index > 0) {
       const preBlock = document.querySelector(
@@ -51,6 +44,10 @@ function appStart() {
     }
     if (index !== 0) index -= 1;
   };
+
+  //자판을 눌렀을때,
+  //keyCode 65번~90번까지만 입력 가능하며 ,
+  //대문자로 들어갈 수 있도록 하고, Backspace시 지워지며, Enter키 눌렀을때 맞은개수 파악
   const handleKeydown = (event) => {
     //toUpperCase = 대문자로 들어갈 수 있도록 함 (문자열만 가능)
     const key = event.key.toUpperCase();
@@ -68,8 +65,8 @@ function appStart() {
     }
   };
 
+  //타이머
   const startTimer = () => {
-    //타이머
     const 시작_시간 = new Date();
 
     function setTime() {
@@ -88,6 +85,20 @@ function appStart() {
 
   startTimer();
   window.addEventListener("keydown", handleKeydown);
+
+  const displayGameover = () => {
+    const div = document.createElement("div");
+    div.innerText = "게임이 종료 되었습니다.";
+    div.style =
+      " background-color:white; color:black; font-size:40px; font-weight:bold; display:flex; justify-content:center; align-items:center; position:fixed; top:47vh; left:37vw; ";
+    document.body.appendChild(div);
+  };
+
+  const gameover = () => {
+    window.removeEventListener("keydown", handleKeydown);
+    displayGameover();
+    clearInterval(timer);
+  };
 }
 
 appStart();
