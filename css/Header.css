@@ -1,0 +1,84 @@
+header {
+  margin-top: 10px;
+  border-bottom: 1px solid #1c1c1d;
+  padding-bottom: 1px;
+}
+
+#timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  width: 100vw;
+  height: 100px;
+  position: relative;
+  font-size: 30px;
+  padding-top: 50px;
+}
+.name_bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  width: 100vw;
+  position: relative;
+}
+
+.name_bar_name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: bold;
+  padding-right: 40px;
+  padding-left: 120px;
+  margin-top: 100px;
+  position: relative;
+}
+.name_bar_menu-icon img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-left: 50px;
+  margin-top: 100px;
+  cursor: pointer;
+}
+
+.name_bar__icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  position: relative;
+  margin-right: 100px;
+}
+
+.name_bar__icons img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  background-color: white;
+  width: 50px;
+  cursor: pointer;
+  position: relative;
+  left: 100px;
+}
+
+.name_bar_etc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: solid white, 4px;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  margin-right: 0px;
+  position: relative;
+  right: 940px;
+  left: -25px;
+}

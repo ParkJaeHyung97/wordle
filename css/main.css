@@ -1,0 +1,29 @@
+@import "Header.css";
+@import "footer.css";
+main {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  background-color: #121213;
+  width: 100vw;
+}
+
+.board-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.board-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #d3d6da;
+  width: 60px;
+  height: 60px;
+  gap: 10px;
+}
