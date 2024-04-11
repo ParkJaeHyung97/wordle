@@ -48,8 +48,9 @@ function appStart() {
   //자판을 눌렀을때,
   //keyCode 65번~90번까지만 입력 가능하며 ,
   //대문자로 들어갈 수 있도록 하고, Backspace시 지워지며, Enter키 눌렀을때 맞은개수 파악
+  //toUpperCase = 대문자로 들어갈 수 있도록 함 (문자열만 가능)
   const handleKeydown = (event) => {
-    //toUpperCase = 대문자로 들어갈 수 있도록 함 (문자열만 가능)
+
     const key = event.key.toUpperCase();
     const keyCode = event.keyCode;
     const thisBlock = document.querySelector(
@@ -89,11 +90,13 @@ function appStart() {
   const displayGameover = () => {
     const div = document.createElement("div");
     div.innerText = "게임이 종료 되었습니다.";
+    //이렇게 js에서도 style 다룰 수 있음, 단 오탈자 주의 (그래서 사용 잘 안함)
     div.style =
       " background-color:white; color:black; font-size:40px; font-weight:bold; display:flex; justify-content:center; align-items:center; position:fixed; top:47vh; left:37vw; ";
     document.body.appendChild(div);
   };
 
+  //gameover시 "게임이 종료 되었습니다." 출력 및 timer 멈춤
   const gameover = () => {
     window.removeEventListener("keydown", handleKeydown);
     displayGameover();

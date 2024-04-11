@@ -1,5 +1,6 @@
 @import "Header.css";
 @import "footer.css";
+@import "reset.css";
 main {
   padding-top: 10px;
   display: flex;
